@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local data
+*.db
+*.sqlite3
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Miscellaneous files 
+template

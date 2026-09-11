@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Locus Browser Context",
+  "version": "0.1.0",
+  "description": "Sends minimal tab and site metadata to the local Locus app.",
+  "permissions": ["tabs", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
