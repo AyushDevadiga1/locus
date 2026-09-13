@@ -2,39 +2,59 @@
 
 A lightweight, offline-first session logger for focused work.
 
-Locus runs quietly in the background while you study or work. It observes what windows and browser tabs you have open, detects natural task boundaries, and at the end of a session gives you a structured summary — what you worked on, for how long, and what topics connected to each other. It then schedules reminders so you return to those topics before you forget them.
+Locus runs quietly in the background while you study or work. It observes what windows are in focus, groups app activity into categories, and produces a structured record of your work sessions. This makes it possible to review where your time went, detect task transitions, and later connect activity back to the topics you were working on.
 
 ---
 
 ## What Locus does
 
-- Tracks active windows and browser tabs passively, with near-zero CPU overhead
-- Groups activity into task blocks automatically, based on context switches and idle gaps
-- Produces a session summary: topics covered, time distribution, concept connections
-- Schedules spaced-repetition reminders (SM-2) to nudge you back to what you studied
-- Stores everything locally — no cloud, no accounts, no data leaving your machine
+- Tracks the active foreground window on Windows using a native event hook
+- Resolves the owning application executable and maps it to a category such as editor, browser, terminal, communication, or productivity
+- Emits structured activity payloads with timestamp, app name, category, and duration in milliseconds
+- Logs app transitions over time so later session logic can detect boundaries and work blocks
+- Stores data locally on the machine with no external account or cloud dependency
 
 ---
 
-## What Locus explicitly does not do
+## Current window capture capabilities
 
-- **It does not judge productivity.** Locus does not decide whether you were focused or distracted. That judgment belongs to you.
-- **It does not capture keystrokes or clipboard content.** Only timing dynamics are observed, never characters.
-- **It does not record audio or video.** No microphone, no webcam in V1.
-- **It does not perform real-time classification.** All analysis runs after a session ends, on idle CPU.
-- **It does not send anything to any external API.** The entire pipeline runs on your machine.
+The current capture layer can:
+
+- listen for foreground-window focus changes through the Windows event system
+- read the process name behind the focused window
+- match that process against the app category mapping in [locus/config/app_mapping.json](locus/config/app_mapping.json)
+- emit JSON payloads like:
+
+  {
+    "timestamp": 1720000000000,
+    "app_name": "code.exe",
+    "window_category": "editor",
+    "duration_ms": 42000
+  }
+
+- flush the final active app interval when the tracker stops
+- run without side effects during import, so it remains testable and safe to use from other modules
+
+---
+
+## What Locus does not do yet
+
+- It does not judge productivity.
+- It does not capture keystrokes or clipboard content.
+- It does not read browser tab titles or URLs by default in the core capture layer.
+- It is not yet a complete session summarizer or reminder scheduler end-to-end.
 
 ---
 
 ## Privacy model
 
-Every signal Locus collects is filtered at the point of capture — before it touches any other part of the system. Window titles from sensitive applications (banking, passwords, private messaging) are suppressed entirely. Browser URLs are stripped of query parameters and personal identifiers before storage. Raw keystroke characters are never recorded; only inter-key timing intervals are kept. No raw text from your screen is stored — only extracted topic terms.
+Every signal Locus collects is filtered at the point of capture. Window titles are not used for the core tracking loop, and local app classification is based on executable names rather than raw user content. The system is designed to stay on the machine and avoid sending data anywhere external.
 
 ---
 
 ## Project status
 
-Active development. See [`docs/phases/`](docs/phases/) for the current build plan.
+Active development. See [docs/phases/](docs/phases/) for the current build plan.
 
 | Phase | Description | Status |
 |---|---|---|
@@ -48,6 +68,7 @@ Active development. See [`docs/phases/`](docs/phases/) for the current build pla
 
 - **Python 3.11+** — core daemon
 - **SQLite** — local storage, single file, no server
+- **Windows Win32 API + pywin32** — foreground window tracking
 - **Browser Extension (WebExtensions API)** — accurate tab metadata
 - **spaCy** — local NLP for topic extraction, post-session only
 - **SM-2** — spaced repetition scheduling algorithm
