@@ -9,9 +9,8 @@
     "vivaldi.exe", "tor.exe", "waterfox.exe", "arc.exe"
   ],
   "communication": [
-    "discord.exe", "slack.exe", "teams.exe", "zoom.exe", "whatsapp.exe", 
-    "tg.exe", "outlook.exe", "skype.exe", "viber.exe", "signal.exe", 
-    "element.exe", "webex.exe"
+    "discord.exe", "slack.exe", "teams.exe", "zoom.exe", "outlook.exe",
+    "skype.exe", "viber.exe", "webex.exe"
   ],
   "terminal": [
     "cmd.exe", "powershell.exe", "wt.exe", "git-bash.exe", "conemu64.exe", 
@@ -60,9 +59,8 @@
     "bleachbit.exe", "ccleaner.exe", "hwinfo64.exe", "cpuz.exe"
   ],
   "security_and_vpn": [
-    "msseces.exe", "mbam.exe", "openvpn.exe", "wireguard.exe", 
-    "nordvpn.exe", "expressvpn.exe", "protonvpn.exe", "bitwarden.exe",
-    "keepassxc.exe", "1password.exe"
+    "msseces.exe", "mbam.exe", "openvpn.exe", "wireguard.exe",
+    "nordvpn.exe", "expressvpn.exe", "protonvpn.exe"
   ],
   "system": [
     "explorer.exe", "taskmgr.exe", "applicationframehost.exe", 

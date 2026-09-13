@@ -9,6 +9,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
 
+from locus.constants import SUPPRESSED_APPS
+
 try:  # pragma: no cover - Windows-only dependency
     import ctypes
     import ctypes.wintypes
@@ -111,6 +113,9 @@ class WindowTracker:
 
     def _determine_category(self, app_name: str) -> str:
         app_lower = app_name.lower()
+        if app_lower in {name.lower() for name in SUPPRESSED_APPS}:
+            return "suppressed"
+
         for category, exe_list in self.raw_mapping.items():
             if app_lower in {name.lower() for name in exe_list}:
                 return category
@@ -143,6 +148,7 @@ class WindowTracker:
         _, process_id = win32process.GetWindowThreadProcessId(hwnd)
         current_app = self._get_process_name(process_id)
         current_category = self._determine_category(current_app)
+        current_app_name = "[SUPPRESSED]" if current_category == "suppressed" else current_app
 
         if self.last_switch_time is not None and self.last_app_name is not None and self.last_category is not None:
             duration = current_time_ms - self.last_switch_time
@@ -154,7 +160,7 @@ class WindowTracker:
             }
             self.user_callback(json.dumps(activity_payload, separators=(",", ":")))
 
-        self.last_app_name = current_app
+        self.last_app_name = current_app_name
         self.last_category = current_category
         self.last_switch_time = current_time_ms
 
