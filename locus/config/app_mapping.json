@@ -1,0 +1,71 @@
+{
+  "editor": [
+    "code.exe", "studio64.exe", "pycharm64.exe", "idea64.exe", "clion64.exe", 
+    "webstorm64.exe", "rider64.exe", "datagrip64.exe", "sublime_text.exe", 
+    "notepad.exe", "notepad++.exe", "atom.exe", "brackets.exe", "cursor.exe"
+  ],
+  "browser": [
+    "chrome.exe", "msedge.exe", "firefox.exe", "opera.exe", "brave.exe", 
+    "vivaldi.exe", "tor.exe", "waterfox.exe", "arc.exe"
+  ],
+  "communication": [
+    "discord.exe", "slack.exe", "teams.exe", "zoom.exe", "whatsapp.exe", 
+    "tg.exe", "outlook.exe", "skype.exe", "viber.exe", "signal.exe", 
+    "element.exe", "webex.exe"
+  ],
+  "terminal": [
+    "cmd.exe", "powershell.exe", "wt.exe", "git-bash.exe", "conemu64.exe", 
+    "cmder.exe", "kitty.exe", "putty.exe", "alacritty.exe", "wezterm.exe"
+  ],
+  "design": [
+    "photoshop.exe", "illustrator.exe", "premiere.exe", "afterfx.exe", 
+    "lightroom.exe", "indesign.exe", "audition.exe", "blender.exe", 
+    "figma.exe", "canva.exe", "gimp-2.10.exe", "inkscape.exe", 
+    "krita.exe", "davinci.exe", "handbrake.exe"
+  ],
+  "productivity": [
+    "winword.exe", "excel.exe", "powerpnt.exe", "acroerd32.exe", 
+    "acrord32.exe", "acrobat.exe", "obsidian.exe", "notion.exe", 
+    "onenote.exe", "todoist.exe", "linear.exe", "trello.exe",
+    "xmind.exe", "drawio.exe"
+  ],
+  "entertainment": [
+    "spotify.exe", "vlc.exe", "itunes.exe", "foobar2000.exe", 
+    "plex.exe", "netflix.exe", "deezer.exe", "ytmusic.exe"
+  ],
+  "gaming": [
+    "steam.exe", "epicgameslauncher.exe", "galaxyclient.exe", 
+    "uplay.exe", "origin.exe", "ea.exe", "battle.net.exe", 
+    "riotclientux.exe", "discord_archived.exe"
+  ],
+  "database": [
+    "dbeaver.exe", "heonisql.exe", "pgadmin4.exe", "mysqlworkbench.exe", 
+    "navicat.exe", "compass.exe", "redis-desktop-manager.exe", "sqlitebrowser.exe"
+  ],
+  "cloud_and_storage": [
+    "onedrive.exe", "googledrivesync.exe", "dropbox.exe", 
+    "nextcloud.exe", "mega.exe", "filezilla.exe", "cyberduck.exe"
+  ],
+  "development_tools": [
+    "docker desktop.exe", "postman.exe", "insomnia.exe", "fiddler.exe", 
+    "wireshark.exe", "sourcetree.exe", "gitkraken.exe", "github.exe",
+    "xampp-control.exe", "node.exe", "wampmanager.exe"
+  ],
+  "virtualization": [
+    "virtualbox.exe", "vmware.exe", "vmplayer.exe", "qemu-system-x86_64.exe"
+  ],
+  "utility_and_sysadmin": [
+    "7zfm.exe", "winrar.exe", "rufus.exe", "anydesk.exe", 
+    "teamviewer.exe", "poweroys.exe", "everything.exe", "ditto.exe", 
+    "bleachbit.exe", "ccleaner.exe", "hwinfo64.exe", "cpuz.exe"
+  ],
+  "security_and_vpn": [
+    "msseces.exe", "mbam.exe", "openvpn.exe", "wireguard.exe", 
+    "nordvpn.exe", "expressvpn.exe", "protonvpn.exe", "bitwarden.exe",
+    "keepassxc.exe", "1password.exe"
+  ],
+  "system": [
+    "explorer.exe", "taskmgr.exe", "applicationframehost.exe", 
+    "control.exe", "regedit.exe", "services.exe", "mmc.exe"
+  ]
+}
